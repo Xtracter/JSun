@@ -1,2 +1,2 @@
 # JSun
-Simple Java Json parser
+Easy / simple json parser
