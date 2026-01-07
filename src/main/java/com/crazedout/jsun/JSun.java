@@ -68,7 +68,7 @@ public class JSun {
     private final ScriptEngine engine = factory.getEngineByName("JavaScript");
     private static final String ARRAY_TAG = "<JSON_ARRAY>";
 
-    static class KeyValuePair {
+    public static class KeyValuePair {
         String name;
         Object value;
 
@@ -315,7 +315,7 @@ public class JSun {
         for (KeyValuePair np : jsun.keyPairList) {
             json.append(parseKeyValuePair(np));
         }
-        if (json.toString().trim().length() > 0 && json.toString().trim().endsWith(",")) {
+        if (!json.toString().trim().isEmpty() && json.toString().trim().endsWith(",")) {
             json = new StringBuilder(json.substring(0, json.length() - 1));
         }
         return json.toString();
@@ -340,7 +340,7 @@ public class JSun {
                     json.append(ao).append(",");
                 }
             }
-            if (json.toString().trim().length() > 0 && json.toString().trim().endsWith(",")) {
+            if (!json.toString().trim().isEmpty() && json.toString().trim().endsWith(",")) {
                 json = new StringBuilder(json.substring(0, json.length() - 1));
             }
             json.append("],");
