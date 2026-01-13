@@ -72,12 +72,7 @@ public class JSunResult {
     @Override
     public String toString(){
         String str = super.toString();
-        try {
-            str = (new JSun(list)).eval();
-        }catch(ScriptException ex){
-            ex.printStackTrace();
-            throw new RuntimeException(ex.getMessage());
-        }
+        str = (new JSun(list)).eval();
         return str;
     }
 }

@@ -209,7 +209,7 @@ public class JSun {
      * ScriptEngine JavaScript eval().
      * @throws ScriptException if scriptEngine.eval(javascriptString) fails.
      */
-    public static void eval(String javascriptString) throws ScriptException{
+    public static void evaluate(String javascriptString) throws ScriptException{
         (new JSun()).engine.eval(javascriptString);
     }
 
@@ -219,10 +219,18 @@ public class JSun {
      * @return json string
      * @throws ScriptException if scriptEngine.eval("JSON.parse('" + toJsonString() +"');") fails.
      */
-    public String eval() throws ScriptException {
+    public String evaluate() throws ScriptException {
         String js = "JSON.parse('" + toJsonString() +"');";
         engine.eval(js);
         return toJsonString();
+    }
+
+    public String eval(){
+        try{
+            return evaluate();
+        }catch(ScriptException ex){
+            throw new RuntimeException(ex.getMessage());
+        }
     }
 
     public List<KeyValuePair> getKeyPairList(){

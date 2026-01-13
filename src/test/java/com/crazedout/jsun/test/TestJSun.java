@@ -57,7 +57,7 @@ public class TestJSun {
         Tutorials tut = new Tutorials();
         JSun json = new JSun(tut);
         String js = "var json = JSON.parse('" + json+"');";
-        JSun.eval(js);
+        JSun.evaluate(js);
     }
 
     @Test
